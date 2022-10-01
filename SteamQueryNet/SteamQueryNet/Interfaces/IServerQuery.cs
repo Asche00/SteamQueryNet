@@ -29,12 +29,22 @@ namespace SteamQueryNet.Interfaces
 		/// <returns>Connected instance of ServerQuery.</returns>
 		IServerQuery Connect(string serverAddress, ushort port);
 
-		/// <summary>
-		/// Configures and Connects the created instance of SteamQuery UDP socket for Steam Server Query Operations.
-		/// </summary>
-		/// <param name="serverAddressAndPort">IPAddress or HostName of the server and port separated by a colon(:) or a comma(,).</param>
-		/// <returns>Connected instance of ServerQuery.</returns>
-		IServerQuery Connect(string serverAddressAndPort);
+        /// <summary>
+        /// Configures and Connects the created instance of SteamQuery UDP socket for Steam Server Query Operations.
+        /// </summary>
+        /// <param name="serverAddress">IPAddress or HostName of the server that queries will be sent.</param>
+        /// <param name="port">Port of the server that queries will be sent.</param>
+		/// <param name="receiveTimeout">Receive timeout in miliseconds.</param>
+		/// <param name="sendTimeout">Send timeout in miliseconds.</param>
+        /// <returns>Connected instance of ServerQuery.</returns>
+        IServerQuery Connect(string serverAddress, ushort port, int receiveTimeout, int sendTimeout);
+
+        /// <summary>
+        /// Configures and Connects the created instance of SteamQuery UDP socket for Steam Server Query Operations.
+        /// </summary>
+        /// <param name="serverAddressAndPort">IPAddress or HostName of the server and port separated by a colon(:) or a comma(,).</param>
+        /// <returns>Connected instance of ServerQuery.</returns>
+        IServerQuery Connect(string serverAddressAndPort);
 
 		/// <summary>
 		/// Configures and Connects the created instance of SteamQuery UDP socket for Steam Server Query Operations.

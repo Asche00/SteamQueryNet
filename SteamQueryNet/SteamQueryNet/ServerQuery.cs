@@ -66,11 +66,19 @@ namespace SteamQueryNet
 			return this;
 		}
 
-		/// <summary>
-		/// Creates a new ServerQuery instance for Steam Server Query Operations.
-		/// </summary>
-		/// <param name="serverAddressAndPort">IPAddress or HostName of the server and port separated by a colon(:) or a comma(,).</param>
-		public IServerQuery Connect(string serverAddressAndPort)
+        public IServerQuery Connect(string serverAddress, ushort port, int receiveTimeout, int sendTimeout)
+        {
+			ReceiveTimeout = receiveTimeout;
+			SendTimeout = sendTimeout;
+			Connect(serverAddress, port);
+            return this;
+        }
+
+        /// <summary>
+        /// Creates a new ServerQuery instance for Steam Server Query Operations.
+        /// </summary>
+        /// <param name="serverAddressAndPort">IPAddress or HostName of the server and port separated by a colon(:) or a comma(,).</param>
+        public IServerQuery Connect(string serverAddressAndPort)
 		{
 			(string serverAddress, ushort port) = Helpers.ResolveIPAndPortFromString(serverAddressAndPort);
 			PrepareAndConnect(serverAddress, port);
