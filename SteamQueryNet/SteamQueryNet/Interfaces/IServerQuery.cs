@@ -34,8 +34,8 @@ namespace SteamQueryNet.Interfaces
         /// </summary>
         /// <param name="serverAddress">IPAddress or HostName of the server that queries will be sent.</param>
         /// <param name="port">Port of the server that queries will be sent.</param>
-		/// <param name="receiveTimeout">Receive timeout in miliseconds.</param>
-		/// <param name="sendTimeout">Send timeout in miliseconds.</param>
+		/// <param name="receiveTimeout">Receive timeout in milliseconds.</param>
+		/// <param name="sendTimeout">Send timeout in milliseconds.</param>
         /// <returns>Connected instance of ServerQuery.</returns>
         IServerQuery Connect(string serverAddress, ushort port, int receiveTimeout, int sendTimeout);
 
